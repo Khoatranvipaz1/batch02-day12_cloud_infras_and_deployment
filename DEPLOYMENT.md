@@ -29,10 +29,11 @@ GET  /        -> 200
 GET  /health  -> 200 (Redis reports up)
 GET  /ready   -> 200
 POST /ask without X-API-Key -> 401
+POST /ask with valid X-API-Key -> 200
 ```
 
-Authenticated `/ask` and rate-limit verification still require the private API
-key stored in Railway.
+The authenticated request returned the mock LLM response successfully. Rate
+limit verification and screenshots are still pending.
 
 ## Required Environment Variables
 

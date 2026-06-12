@@ -74,7 +74,7 @@ de tranh bo sot yeu cau cua lab va rubric cham diem.
 - [x] `GET <PUBLIC_URL>/health` tra `200`.
 - [x] `GET <PUBLIC_URL>/ready` tra `200`.
 - [x] Request khong co key tra `401`.
-- [ ] Request co key tra `200`.
+- [x] Request co key tra `200`.
 - [ ] Goi qua limit tra `429`.
 
 ## 7. Checklist ho so nop bai

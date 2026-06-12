@@ -9,8 +9,8 @@
 ## Ket luan
 
 Phan source va kiem thu local da hoan thanh. Web service Railway da co public
-URL, Redis da ket noi va `/ready` tra `200`. Phan con thieu la test public bang
-API key, rate limit, screenshots va GitHub submission URL.
+URL, Redis da ket noi, `/ready` tra `200` va authenticated `/ask` tra `200`.
+Phan con thieu la test public rate limit, screenshots va GitHub submission URL.
 
 ## 1. Source code
 
@@ -68,7 +68,7 @@ Trang thai: **Gan day du**
 
 Con thieu:
 
-- Test public authenticated `/ask` va rate limit.
+- Test public rate limit.
 - Link screenshot that trong report.
 - GitHub repository URL.
 
@@ -109,7 +109,8 @@ Neu nop ca repository Day 12 hien tai, can noi ro final project nam trong
 - [ ] Set `LOG_LEVEL=INFO`.
 - [x] Deploy va lay public URL.
 - [x] Test `/health`, `/ready` va missing-key auth qua public URL.
-- [ ] Test valid-key `/ask` va rate limit qua public URL.
+- [x] Test valid-key `/ask` qua public URL.
+- [ ] Test rate limit qua public URL.
 - [ ] Chup `dashboard.png`, `running.png`, `test.png`.
 - [ ] Cap nhat `DEPLOYMENT.md`.
 

@@ -25,6 +25,7 @@ Current cloud status:
 - `GET /health` returns `200` and reports Redis `up`.
 - `GET /ready` returns `200`.
 - Missing API key returns `401`.
+- Valid API key returns `200` from `POST /ask`.
 
 ---
 
