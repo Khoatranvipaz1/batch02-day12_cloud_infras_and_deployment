@@ -13,7 +13,7 @@ import subprocess
 
 
 def check(name: str, passed: bool, detail: str = "") -> dict:
-    icon = "✅" if passed else "❌"
+    icon = "[PASS]" if passed else "[FAIL]"
     print(f"  {icon} {name}" + (f" — {detail}" if detail else ""))
     return {"name": name, "passed": passed}
 
@@ -27,7 +27,7 @@ def run_checks():
     print("=" * 55)
 
     # ── Files ──────────────────���───────────────────
-    print("\n📁 Required Files")
+    print("\nRequired Files")
     results.append(check("Dockerfile exists",
                          os.path.exists(os.path.join(base, "Dockerfile"))))
     results.append(check("docker-compose.yml exists",
@@ -43,7 +43,7 @@ def run_checks():
                          os.path.exists(os.path.join(base, "render.yaml"))))
 
     # ── Security ──────────────────────────────────���
-    print("\n🔒 Security")
+    print("\nSecurity")
 
     # Check .env not tracked
     env_file = os.path.join(base, ".env")
@@ -63,7 +63,13 @@ def run_checks():
 
     # Check no hardcoded secrets in code
     secrets_found = []
-    for f in ["app/main.py", "app/config.py"]:
+    for f in [
+        "app/main.py",
+        "app/config.py",
+        "app/auth.py",
+        "app/rate_limiter.py",
+        "app/cost_guard.py",
+    ]:
         fpath = os.path.join(base, f)
         if os.path.exists(fpath):
             content = open(fpath).read()
@@ -75,7 +81,7 @@ def run_checks():
                          str(secrets_found) if secrets_found else ""))
 
     # ── API Endpoints ────────────────────────────��─
-    print("\n🌐 API Endpoints (code check)")
+    print("\nAPI Endpoints (code check)")
     main_py = os.path.join(base, "app", "main.py")
     if os.path.exists(main_py):
         content = open(main_py).read()
@@ -91,11 +97,15 @@ def run_checks():
                              "SIGTERM" in content))
         results.append(check("Structured logging (JSON)",
                              "json.dumps" in content or '"event"' in content))
+        results.append(check("Conversation history implemented",
+                             "load_history" in content and "append_history" in content))
+        results.append(check("Redis-backed state",
+                             "require_redis" in content))
     else:
         results.append(check("app/main.py exists", False, "Create app/main.py!"))
 
     # ── Docker ─────────────────────────────────────
-    print("\n🐳 Docker")
+    print("\nDocker")
     dockerfile = os.path.join(base, "Dockerfile")
     if os.path.exists(dockerfile):
         content = open(dockerfile).read()
@@ -125,13 +135,13 @@ def run_checks():
     print(f"  Result: {passed}/{total} checks passed ({pct}%)")
 
     if pct == 100:
-        print("  🎉 PRODUCTION READY! Deploy nào!")
+        print("  PRODUCTION READY")
     elif pct >= 80:
-        print("  ✅ Almost there! Fix the ❌ items above.")
+        print("  Almost there. Fix the failed items above.")
     elif pct >= 60:
-        print("  ⚠️  Good progress. Several items need attention.")
+        print("  Good progress. Several items need attention.")
     else:
-        print("  ❌ Not ready. Review the checklist carefully.")
+        print("  Not ready. Review the checklist carefully.")
 
     print("=" * 55 + "\n")
     return pct == 100

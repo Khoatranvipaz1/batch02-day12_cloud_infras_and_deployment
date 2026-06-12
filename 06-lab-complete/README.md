@@ -26,16 +26,22 @@ Kết hợp TẤT CẢ những gì đã học trong 1 project hoàn chỉnh.
 ├── app/
 │   ├── main.py         # Entry point — kết hợp tất cả
 │   ├── config.py       # 12-factor config
-│   ├── auth.py         # API Key + JWT
+│   ├── auth.py         # API Key authentication
+│   ├── redis_store.py  # Redis connection + conversation history
 │   ├── rate_limiter.py # Rate limiting
 │   └── cost_guard.py   # Budget protection
+├── utils/
+│   └── mock_llm.py     # Mock LLM chạy offline
+├── tests/
+│   └── test_app.py     # API/security/reliability tests
 ├── Dockerfile          # Multi-stage, production-ready
 ├── docker-compose.yml  # Full stack
 ├── railway.toml        # Deploy Railway
 ├── render.yaml         # Deploy Render
 ├── .env.example        # Template
 ├── .dockerignore
-└── requirements.txt
+├── requirements.txt
+└── requirements-dev.txt
 ```
 
 ---
@@ -43,21 +49,18 @@ Kết hợp TẤT CẢ những gì đã học trong 1 project hoàn chỉnh.
 ## Chạy Local
 
 ```bash
-# 1. Setup
-cp .env.example .env
+# 1. Chạy agent + Redis
+docker compose up --build
 
-# 2. Chạy với Docker Compose
-docker compose up
+# 2. Test health/readiness
+curl http://localhost:8000/health
+curl http://localhost:8000/ready
 
-# 3. Test
-curl http://localhost/health
-
-# 4. Lấy API key từ .env, test endpoint
-API_KEY=$(grep AGENT_API_KEY .env | cut -d= -f2)
-curl -H "X-API-Key: $API_KEY" \
-     -X POST http://localhost/ask \
+# 3. Test endpoint có authentication
+curl -H "X-API-Key: dev-key-change-me" \
+     -X POST http://localhost:8000/ask \
      -H "Content-Type: application/json" \
-     -d '{"question": "What is deployment?"}'
+     -d '{"user_id":"demo","question":"What is deployment?"}'
 ```
 
 ---
@@ -71,8 +74,10 @@ npm i -g @railway/cli
 # Login và deploy
 railway login
 railway init
-railway variables set OPENAI_API_KEY=sk-...
 railway variables set AGENT_API_KEY=your-secret-key
+railway variables set REDIS_URL=your-redis-url
+railway variables set ENVIRONMENT=production
+railway variables set LOG_LEVEL=INFO
 railway up
 
 # Nhận public URL!
@@ -86,15 +91,21 @@ railway domain
 1. Push repo lên GitHub
 2. Render Dashboard → New → Blueprint
 3. Connect repo → Render đọc `render.yaml`
-4. Set secrets: `OPENAI_API_KEY`, `AGENT_API_KEY`
+4. Set secrets: `AGENT_API_KEY`, `REDIS_URL`
 5. Deploy → Nhận URL!
+
+Nếu deploy từ repository Day 12 đầy đủ, đặt root directory của service thành
+`06-lab-complete`. Cách đơn giản nhất để nộp bài là dùng chính nội dung folder
+`06-lab-complete` làm root của một repository submission riêng.
 
 ---
 
 ## Kiểm Tra Production Readiness
 
 ```bash
+pip install -r requirements-dev.txt
 python check_production_ready.py
+python -m pytest -q
 ```
 
 Script này kiểm tra tất cả items trong checklist và báo cáo những gì còn thiếu.

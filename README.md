@@ -45,6 +45,15 @@ day12_ha-tang-cloud_va_deployment/
 
 **Muốn học kỹ?** → [CODE_LAB.md](CODE_LAB.md) (3-4 giờ)
 
+## Bài Nộp Đã Hoàn Thiện
+
+- [Final project](06-lab-complete/)
+- [Mission answers](MISSION_ANSWERS.md)
+- [Develop vs production analysis](DEVELOP_VS_PRODUCTION.md)
+- [Deployment report](DEPLOYMENT.md)
+- [Work checklist](docs.md)
+- [Final audit](LAB_AUDIT_REPORT.md)
+
 ## Cách Học
 
 | Bước | Làm gì |
