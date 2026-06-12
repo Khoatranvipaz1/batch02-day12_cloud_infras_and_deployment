@@ -161,7 +161,8 @@ curl -X POST https://your-agent.railway.app/ask \
 ## Screenshots
 - [Deployment dashboard](screenshots/dashboard.png)
 - [Service running](screenshots/running.png)
-- [Test results](screenshots/test.png)
+- [Health and readiness results](screenshots/testing1.png)
+- [Authenticated and rate-limit results](screenshots/testing2.png)
 ```
 
 ##  Pre-Submission Checklist
@@ -174,8 +175,18 @@ curl -X POST https://your-agent.railway.app/ask \
 - [x] No `.env` file committed (only `.env.example`)
 - [x] No production secrets hardcoded in final source code
 - [x] Public URL passes both `/health` and `/ready`
-- [ ] Screenshots included in `screenshots/` folder
+- [x] Screenshots included in `screenshots/` folder
 - [x] Repository has clear commit history
+
+Screenshot evidence:
+
+- `screenshots/dashboard.png`: Railway web service and Redis online
+- `screenshots/running.png`: successful active deployment
+- `screenshots/testing1.png`: public health and readiness checks
+- `screenshots/testing2.png`: authenticated request and rate-limit `429`
+
+CI/CD is not required by the 100-point rubric. Cloud Run CI/CD is optional in
+Exercise 3.3, and GitHub Actions is listed as a next step after the lab.
 
 ---
 

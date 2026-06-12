@@ -32,8 +32,9 @@ POST /ask without X-API-Key -> 401
 POST /ask with valid X-API-Key -> 200
 ```
 
-The authenticated request returned the mock LLM response successfully. Rate
-limit verification and screenshots are still pending.
+The authenticated request returned the mock LLM response successfully. Public
+rate limiting was also verified: requests 1-10 returned `200`, and request 11
+returned `429`.
 
 ## Required Environment Variables
 
@@ -98,6 +99,13 @@ done
 
 ## Screenshots
 
-- `screenshots/dashboard.png`: pending
-- `screenshots/running.png`: pending
-- `screenshots/test.png`: pending
+- [Railway project and Redis online](screenshots/dashboard.png)
+- [Active successful deployment](screenshots/running.png)
+- [Public health and readiness checks](screenshots/testing1.png)
+- [Authenticated ask and public rate-limit result](screenshots/testing2.png)
+
+## CI/CD Scope
+
+CI/CD is not required for the Part 6 grading rubric. Railway is currently
+connected to GitHub and the screenshot shows a deployment triggered from a
+GitHub commit, but a custom GitHub Actions workflow is an optional next step.

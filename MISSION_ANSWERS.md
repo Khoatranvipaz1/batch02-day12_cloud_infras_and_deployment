@@ -94,7 +94,15 @@ The project includes `06-lab-complete/railway.toml`. Deployment requires:
 - `AGENT_API_KEY=<strong secret>`
 - `REDIS_URL=<managed Redis URL>`
 
-Public URL and deployment screenshot are pending cloud account access.
+The final Railway deployment is available at:
+
+```text
+https://batch02-day12cloudinfrasanddeployment-production-f11b.up.railway.app
+```
+
+The repository includes screenshots of the Railway service, managed Redis,
+successful deployment, public health/readiness checks, authenticated `/ask`,
+and a `429` public rate-limit response.
 
 ### Render comparison
 
@@ -104,6 +112,9 @@ use `/health` for health checks.
 
 Cloud Run is more configurable and suitable for mature production workloads,
 but requires additional GCP and CI/CD setup.
+
+Cloud Run and its CI/CD pipeline are optional in Exercise 3.3. They are not
+required for the Part 6 score.
 
 ## Part 4: API Security
 

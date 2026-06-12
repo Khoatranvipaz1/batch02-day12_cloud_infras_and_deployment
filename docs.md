@@ -75,7 +75,7 @@ de tranh bo sot yeu cau cua lab va rubric cham diem.
 - [x] `GET <PUBLIC_URL>/ready` tra `200`.
 - [x] Request khong co key tra `401`.
 - [x] Request co key tra `200`.
-- [ ] Goi qua limit tra `429`.
+- [x] Goi qua limit tra `429`.
 
 ## 7. Checklist ho so nop bai
 
@@ -83,12 +83,16 @@ de tranh bo sot yeu cau cua lab va rubric cham diem.
 - [x] `DEPLOYMENT.md` co platform, env vars va lenh test.
 - [x] Cap nhat public URL that trong `DEPLOYMENT.md`.
 - [x] `06-lab-complete/README.md` co huong dan local va deployment.
-- [ ] `screenshots/dashboard.png`.
-- [ ] `screenshots/running.png`.
-- [ ] `screenshots/test.png`.
-- [ ] Public GitHub repository hoac cap quyen cho giang vien.
-- [ ] Khong commit `.env`, API key hoac Redis credentials.
+- [x] `screenshots/dashboard.png`.
+- [x] `screenshots/running.png`.
+- [x] `screenshots/testing1.png` va `screenshots/testing2.png`.
+- [x] Public GitHub repository.
+- [x] Khong commit `.env`, API key that hoac Redis credentials trong working
+  tree va Git history.
 - [x] Da dien Student Name, Student ID va Date.
+
+CI/CD khong bat buoc trong rubric 100 diem. Cloud Run CI/CD la bai optional va
+GitHub Actions la next step sau lab.
 
 ## 8. Lenh verify cuoi
 

@@ -8,9 +8,15 @@
 
 ## Ket luan
 
-Phan source va kiem thu local da hoan thanh. Web service Railway da co public
-URL, Redis da ket noi, `/ready` tra `200` va authenticated `/ask` tra `200`.
-Phan con thieu la test public rate limit, screenshots va GitHub submission URL.
+Lab da hoan thanh cac yeu cau cham diem bat buoc. Source va kiem thu local dat
+100%, web service Railway co public URL, Redis da ket noi, `/health` va `/ready`
+tra `200`, authenticated `/ask` tra `200`, va public rate limit tra `429` sau
+10 request. Repository GitHub public va cac screenshot deployment/test da duoc
+commit.
+
+CI/CD khong nam trong rubric 100 diem cua Part 6. Trong `CODE_LAB.md`, Cloud Run
+CI/CD la Exercise 3.3 optional va GitHub Actions nam trong muc Next Steps. Vi
+vay khong can lam them CI/CD de hoan thanh lab nay.
 
 ## 1. Source code
 
@@ -58,7 +64,7 @@ Trang thai: **Dat**
 
 ## 4. Reports
 
-Trang thai: **Gan day du**
+Trang thai: **Dat**
 
 - `MISSION_ANSWERS.md`: da co cau tra loi Part 1-5 va ket qua local.
 - `DEVELOP_VS_PRODUCTION.md`: da phan tich module 01-05.
@@ -66,11 +72,11 @@ Trang thai: **Gan day du**
 - `docs.md`: checklist cong viec va trang thai.
 - `06-lab-complete/README.md`: huong dan local, test va deployment.
 
-Con thieu:
-
-- Test public rate limit.
-- Link screenshot that trong report.
-- GitHub repository URL.
+- `DAY12_DELIVERY_CHECKLIST.md`: co GitHub repository URL va public URL.
+- `screenshots/dashboard.png`: Railway project va Redis online.
+- `screenshots/running.png`: deployment active va successful.
+- `screenshots/testing1.png`: public `/health` va `/ready`.
+- `screenshots/testing2.png`: authenticated `/ask` va public rate limit `429`.
 
 ## 5. Repository layout
 
@@ -101,24 +107,25 @@ Neu nop ca repository Day 12 hien tai, can noi ro final project nam trong
 
 ## 6. Bat buoc hoan thanh tren cloud
 
-- [ ] Chon Railway hoac Render.
-- [ ] Tao managed Redis.
-- [ ] Set `ENVIRONMENT=production`.
-- [ ] Set secret `AGENT_API_KEY`.
-- [ ] Set `REDIS_URL`.
-- [ ] Set `LOG_LEVEL=INFO`.
+- [x] Chon Railway.
+- [x] Tao managed Redis.
+- [x] Set `ENVIRONMENT=production`.
+- [x] Set secret `AGENT_API_KEY`.
+- [x] Set `REDIS_URL`.
+- [x] Set `LOG_LEVEL=INFO`.
 - [x] Deploy va lay public URL.
 - [x] Test `/health`, `/ready` va missing-key auth qua public URL.
 - [x] Test valid-key `/ask` qua public URL.
-- [ ] Test rate limit qua public URL.
-- [ ] Chup `dashboard.png`, `running.png`, `test.png`.
-- [ ] Cap nhat `DEPLOYMENT.md`.
+- [x] Test rate limit qua public URL.
+- [x] Chup dashboard, deployment status va public endpoint tests.
+- [x] Cap nhat `DEPLOYMENT.md`.
 
 ## 7. Truoc khi nop
 
 - [x] Dien Student Name, Student ID va Date.
-- [ ] Kiem tra repository public hoac da cap quyen giang vien.
-- [ ] Kiem tra Git history khong tung chua secret.
-- [ ] Xac nhan khong commit `.env`.
-- [ ] Test public URL tu mot thiet bi hoac mang khac.
-- [ ] Dan GitHub repository URL vao he thong nop bai.
+- [x] Kiem tra repository public.
+- [x] Kiem tra Git history: khong thay `.env`, Redis credential hay private key;
+  cac gia tri giong API key chi nam trong file example/tai lieu mau.
+- [x] Xac nhan khong commit `.env`.
+- [x] Test public URL qua Railway domain.
+- [x] GitHub repository URL da co trong delivery checklist.
