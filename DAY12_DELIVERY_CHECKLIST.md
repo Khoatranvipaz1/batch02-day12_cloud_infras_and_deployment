@@ -8,6 +8,26 @@
 
 ---
 
+## Submission Status
+
+- **GitHub repository:**
+  `https://github.com/Khoatranvipaz1/batch02-day12_cloud_infras_and_deployment`
+- **Final project directory:** `06-lab-complete/`
+- **Platform:** Railway
+- **Public URL:**
+  `https://batch02-day12cloudinfrasanddeployment-production-f11b.up.railway.app`
+- **Mission answers:** [MISSION_ANSWERS.md](MISSION_ANSWERS.md)
+- **Deployment report:** [DEPLOYMENT.md](DEPLOYMENT.md)
+- **Final audit:** [LAB_AUDIT_REPORT.md](LAB_AUDIT_REPORT.md)
+
+Current cloud status:
+
+- `GET /health` returns `200` and reports Redis `up`.
+- `GET /ready` returns `200`.
+- Missing API key returns `401`.
+
+---
+
 ##  Submission Requirements
 
 Submit a **GitHub repository** containing:
@@ -145,16 +165,16 @@ curl -X POST https://your-agent.railway.app/ask \
 
 ##  Pre-Submission Checklist
 
-- [ ] Repository is public (or instructor has access)
-- [ ] `MISSION_ANSWERS.md` completed with all exercises
-- [ ] `DEPLOYMENT.md` has working public URL
-- [ ] All source code in `app/` directory
-- [ ] `README.md` has clear setup instructions
-- [ ] No `.env` file committed (only `.env.example`)
-- [ ] No hardcoded secrets in code
-- [ ] Public URL is accessible and working
+- [x] Repository is public (or instructor has access)
+- [x] `MISSION_ANSWERS.md` completed with all exercises
+- [x] `DEPLOYMENT.md` contains the public URL
+- [x] All final source code is in `06-lab-complete/app/`
+- [x] `README.md` has clear setup instructions
+- [x] No `.env` file committed (only `.env.example`)
+- [x] No production secrets hardcoded in final source code
+- [x] Public URL passes both `/health` and `/ready`
 - [ ] Screenshots included in `screenshots/` folder
-- [ ] Repository has clear commit history
+- [x] Repository has clear commit history
 
 ---
 
@@ -190,7 +210,7 @@ done
 **Submit your GitHub repository URL:**
 
 ```
-https://github.com/your-username/day12-agent-deployment
+https://github.com/Khoatranvipaz1/batch02-day12_cloud_infras_and_deployment
 ```
 
 **Deadline:** 17/4/2026

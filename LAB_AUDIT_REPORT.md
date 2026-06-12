@@ -8,9 +8,9 @@
 
 ## Ket luan
 
-Phan source va kiem thu local da hoan thanh. Phan con thieu de nop bai day du la
-deployment cloud that, public URL, screenshots, thong tin sinh vien va GitHub
-repository URL.
+Phan source va kiem thu local da hoan thanh. Web service Railway da co public
+URL, Redis da ket noi va `/ready` tra `200`. Phan con thieu la test public bang
+API key, rate limit, screenshots va GitHub submission URL.
 
 ## 1. Source code
 
@@ -68,7 +68,7 @@ Trang thai: **Gan day du**
 
 Con thieu:
 
-- Public URL that trong `DEPLOYMENT.md`.
+- Test public authenticated `/ask` va rate limit.
 - Link screenshot that trong report.
 - GitHub repository URL.
 
@@ -107,8 +107,9 @@ Neu nop ca repository Day 12 hien tai, can noi ro final project nam trong
 - [ ] Set secret `AGENT_API_KEY`.
 - [ ] Set `REDIS_URL`.
 - [ ] Set `LOG_LEVEL=INFO`.
-- [ ] Deploy va lay public URL.
-- [ ] Test `/health`, `/ready`, auth va rate limit qua public URL.
+- [x] Deploy va lay public URL.
+- [x] Test `/health`, `/ready` va missing-key auth qua public URL.
+- [ ] Test valid-key `/ask` va rate limit qua public URL.
 - [ ] Chup `dashboard.png`, `running.png`, `test.png`.
 - [ ] Cap nhat `DEPLOYMENT.md`.
 

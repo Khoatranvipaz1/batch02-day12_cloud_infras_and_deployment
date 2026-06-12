@@ -8,17 +8,31 @@
 
 ## Status
 
-Deployment is pending cloud account authentication.
+Deployed on Railway. The web service and managed Redis are connected and ready.
 
 ## Public URL
 
 ```text
-PENDING_RAILWAY_OR_RENDER_URL
+https://batch02-day12cloudinfrasanddeployment-production-f11b.up.railway.app
 ```
 
 ## Recommended Platform
 
 Railway with a managed Redis service.
+
+## Current Public Verification
+
+Verified on 12/06/2026:
+
+```text
+GET  /        -> 200
+GET  /health  -> 200 (Redis reports up)
+GET  /ready   -> 200
+POST /ask without X-API-Key -> 401
+```
+
+Authenticated `/ask` and rate-limit verification still require the private API
+key stored in Railway.
 
 ## Required Environment Variables
 
@@ -53,9 +67,11 @@ directory as `06-lab-complete`. Alternatively, publish the contents of
 
 ## Public Test Commands
 
-Replace `$URL` and `$KEY` after deployment.
+Set `$KEY` to the secret stored in Railway. Do not commit its value.
 
 ```bash
+URL="https://batch02-day12cloudinfrasanddeployment-production-f11b.up.railway.app"
+
 curl "$URL/health"
 curl "$URL/ready"
 

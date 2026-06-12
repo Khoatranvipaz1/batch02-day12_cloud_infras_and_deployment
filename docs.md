@@ -65,15 +65,15 @@ de tranh bo sot yeu cau cua lab va rubric cham diem.
 
 - [x] Co `railway.toml`.
 - [x] Co `render.yaml`.
-- [ ] Chon Railway hoac Render.
-- [ ] Tao Redis service tren cloud.
-- [ ] Set `ENVIRONMENT=production`.
-- [ ] Set `AGENT_API_KEY` bang secret manh.
-- [ ] Set `REDIS_URL`.
-- [ ] Deploy thanh cong.
-- [ ] `GET <PUBLIC_URL>/health` tra `200`.
-- [ ] `GET <PUBLIC_URL>/ready` tra `200`.
-- [ ] Request khong co key tra `401`.
+- [x] Chon Railway.
+- [x] Tao Redis service tren cloud.
+- [x] Set `ENVIRONMENT=production`.
+- [x] Set `AGENT_API_KEY` bang secret manh.
+- [x] Sua reference `REDIS_URL` de agent ket noi Redis.
+- [x] Deploy web service thanh cong.
+- [x] `GET <PUBLIC_URL>/health` tra `200`.
+- [x] `GET <PUBLIC_URL>/ready` tra `200`.
+- [x] Request khong co key tra `401`.
 - [ ] Request co key tra `200`.
 - [ ] Goi qua limit tra `429`.
 
@@ -81,7 +81,7 @@ de tranh bo sot yeu cau cua lab va rubric cham diem.
 
 - [x] `MISSION_ANSWERS.md` tra loi Part 1-5.
 - [x] `DEPLOYMENT.md` co platform, env vars va lenh test.
-- [ ] Cap nhat public URL that trong `DEPLOYMENT.md`.
+- [x] Cap nhat public URL that trong `DEPLOYMENT.md`.
 - [x] `06-lab-complete/README.md` co huong dan local va deployment.
 - [ ] `screenshots/dashboard.png`.
 - [ ] `screenshots/running.png`.
